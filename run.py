@@ -93,7 +93,7 @@ def main():
         print(f"Error: Directory '{day_dir}' does not exist")
         sys.exit(1)
 
-    solution_file = os.path.join(day_dir, "mai.py")
+    solution_file = os.path.join(day_dir, "main.py")
 
     if not os.path.isfile(solution_file):
         print(f"Error: '{solution_file}' does not exist")
