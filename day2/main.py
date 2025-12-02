@@ -68,8 +68,6 @@ def part2():
 
                     for number in range(partStart, partEnd + 1):
                         pattern = int(str(number) * repeats)
-                        print(pattern)
-
                         if pattern >= int(start) and pattern <= int(end):
                             uniquePatternsInRange.add(pattern)
 
