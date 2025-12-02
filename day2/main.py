@@ -37,7 +37,7 @@ def part1():
 
 def part2():
     patternSum = 0
-    with open("day2/test.txt", "r") as f:
+    with open("day2/input.txt", "r") as f:
         content = f.read().strip().replace("\n", "")
         rangesN = content.split(",")
 
