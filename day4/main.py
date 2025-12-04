@@ -41,44 +41,44 @@ def part1(data):
 
 
 def part2(data):
-return 0                                                         
-    grid = [list(line) for line in data]                             
-    rows = len(grid)                                                 
-    cols = len(grid[0]) if rows > 0 else 0                           
-                                                                     
-    total_removed = 0                                                
-                                                                     
-    while True:                                                      
-        accessible = []                                              
-                                                                     
-        for r in range(rows):                                        
-            for c in range(cols):                                    
-                if grid[r][c] == '@':                                
-                    adjacent_rolls = 0                               
-                    for dr in [-1, 0, 1]:                            
-                        for dc in [-1, 0, 1]:                        
-                            if dr == 0 and dc == 0:                  
-                                continue                             
-                            nr, nc = r + dr, c + dc                  
-                            if 0 <= nr < rows and 0 <= nc < cols:    
-                                if grid[nr][nc] == '@':              
-                                    adjacent_rolls += 1              
-                                                                     
-                    if adjacent_rolls < 4:                           
-                        accessible.append((r, c))                    
-                                                                     
-        if not accessible:                                           
-            break                                                    
-                                                                     
-        for r, c in accessible:                                      
-            grid[r][c] = '.'                                         
-                                                                     
-        total_removed += len(accessible)                             
-                                                                     
+    grid = [list(line) for line in data]
+    rows = len(grid)
+    cols = len(grid[0]) if rows > 0 else 0
+
+    total_removed = 0
+
+    while True:
+        accessible = []
+
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == "@":
+                    adjacent_rolls = 0
+                    for dr in [-1, 0, 1]:
+                        for dc in [-1, 0, 1]:
+                            if dr == 0 and dc == 0:
+                                continue
+                            nr, nc = r + dr, c + dc
+                            if 0 <= nr < rows and 0 <= nc < cols:
+                                if grid[nr][nc] == "@":
+                                    adjacent_rolls += 1
+
+                    if adjacent_rolls < 4:
+                        accessible.append((r, c))
+
+        if not accessible:
+            break
+
+        for r, c in accessible:
+            grid[r][c] = "."
+
+        total_removed += len(accessible)
+
     return total_removed
+
 
 def main():
     data = getData()
 
-    print(f"Part 1: {part1(data)}")
-    print(f"Part 2: {part2(data)}")
+    print(f"Part 1: {part1(data)}, answer: 1464")
+    print(f"Part 2: {part2(data)}, answer: 8409")
