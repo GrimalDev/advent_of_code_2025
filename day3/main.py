@@ -22,6 +22,31 @@ def part1():
 def part2():
     with open("day3/input.txt", "r") as f:
         banks = f.read().strip().split("\n")
+        bankLen = len(banks[0])
+        nSkip = bankLen - 12
+
+        sum = 0
+
+        for bank in banks:
+            start = 0
+            batteries = []
+
+            for group in range(12):
+                nextStart = start
+                end = nSkip + group + 1
+                maxDigit = "0"
+
+                for digit in range(start, end):
+                    battery = bank[digit]
+                    if battery > maxDigit:
+                        maxDigit = battery
+                        nextStart = digit + 1
+
+                start = nextStart
+                batteries.append(maxDigit)
+            sum += int("".join(batteries))
+
+        return sum
 
 
 def main():
